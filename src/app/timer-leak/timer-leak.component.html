@@ -1,0 +1,10 @@
+<div class="container card">
+  <div class="card-body">
+    <h5 class="card-title">Leaking timer component</h5>
+    <div class="card-text">
+      SetInterval/SetTimeout are both methods that belong to the window scope. If a component binds a scope when calling them (by providing a bound method or trying to access scope-level variables), or tries storing their references, that component can not be released from memory until the timeout is complete, or the interval is cleared
+      <br>
+      {{time}}
+    </div>
+  </div>
+</div>

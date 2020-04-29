@@ -1,0 +1,15 @@
+.container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn:not(:last-child) {
+  margin-right: 10px;
+}
+.components-container {
+  padding-top: 10px;
+}
+.components-container * {
+  margin-bottom: 10px;
+  display: block;
+}

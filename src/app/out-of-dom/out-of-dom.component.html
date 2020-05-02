@@ -2,8 +2,10 @@
   <div class="card-body">
     <h5 class="card-title">Leaking Out-Of-DOM element component</h5>
     <div class="card-text">
-      The reference for this component is stored every time it is added to the DOM, which does not allow GC to remove it from memory when it is removed from the DOM.<br>
-      In this example we are using a component so we can more easily detect it in a memory snapshot, but it can be done as easily for any DOM element (div, span, etc...)
+      Out-Of-DOM leaks are caused when we store references to DOM elements, and later remove these elements from the DOM.<br>
+      In Angular this will usually happen with components, but it can also happen with any other DOM element. <br>
+      In this example, The reference for this component is stored every time it is added to the DOM, which does not allow GC to remove it from memory when it is removed from the DOM.<br>
+      Here we are using a component so we can more easily detect it in a memory snapshot, but it can happen as easily with any DOM element (div, span, button, etc...)
     </div>
   </div>
 </div>

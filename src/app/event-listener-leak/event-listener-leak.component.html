@@ -2,7 +2,11 @@
   <div class="card-body">
     <h5 class="card-title">Leaking Event listener component</h5>
     <div class="card-text">
-      Not removing an event listener from the DOM is classic memory leak - but it will not be easy to recognize in a memory snapshot. In our case the function that we provided as handler for the event listener is accessing the component scope and also causing the entire component to remain in memory. But if we move the variable declaration inside the eventListener function, we will not be able to find this memory leak since it will hide among all other eventListeners we have. Doesn't mean it's not there, so if you've added an eventListener, dont forget to call removeEventListener()
+      Not removing an event listener from the DOM is classic memory leak - but it will not be easy to recognize in a memory snapshot.<br>
+      In our case, the function that we provided as a handler for the event listener is accessing the components' scope and also causing the entire component to remain in memory.<br>
+      But if we move the variable declaration inside the eventListener function, we will not be able to find this memory leak since it will hide among all other eventListeners
+      we have - most of them are created by Angular. <br>
+      That doesn't mean it's not there, so if you've added an eventListener, dont forget to call removeEventListener()!
     </div>
   </div>
 </div>

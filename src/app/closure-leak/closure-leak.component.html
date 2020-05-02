@@ -2,9 +2,10 @@
   <div class="card-body">
     <h5 class="card-title">Leaking closure component</h5>
     <div class="card-text">
-      This component uses a "bind" method to add a custom event handler via a root-scope service.<br>
+      This component uses a "bind" method to add a custom handler via a root-scope service.<br>
       This preserves the entire scope of the component for the events closure.<br>
-      Since the callback still has a reference inside the service even after the component is destroyed, the instance will remain in memory since it is accessible from the service. 
+      Since the callback still has a reference inside the service even after the component is destroyed, the instance will remain in memory since it is accessible from the service.<br>
+      We need to make sure we nullify any reference to a component's scope when it is destroyed. 
     </div>
   </div>
 </div>

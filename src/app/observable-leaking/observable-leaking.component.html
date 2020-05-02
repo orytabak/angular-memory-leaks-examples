@@ -2,7 +2,11 @@
   <div class="card-body">
     <h5 class="card-title">Leaking observable component</h5>
     <div class="card-text">
-      This is a component with an un-disposed subscription. Removing it from the DOM will not remove it from the memory.
+      Subscribing to an Observable is a useful way to get your data. But when the subscription is made outside of the root scope, it will probably cause memory leaks.<br>
+      The reason is that the Observalbe, even if declared inside a certain scope, will remain in memory as long as it needs to provide data to any Subscription. <br>
+      Since the subscription also contains the closure for the callback that is to be executed, the object that holds the subscription will also remain in memory.<br>
+      We need to make sure we use a Subscriptions "unsubscribe" method to dispose of the resource.<br>  
+      This component contains an un-disposed subscription. Removing it from the DOM will not remove it from the memory.
       <br>
       Timer is running {{time}} seconds
     </div>

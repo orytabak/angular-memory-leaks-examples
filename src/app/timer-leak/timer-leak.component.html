@@ -2,7 +2,10 @@
   <div class="card-body">
     <h5 class="card-title">Leaking timer component</h5>
     <div class="card-text">
-      SetInterval/SetTimeout are both methods that belong to the window scope. If a component binds a scope when calling them (by providing a bound method or trying to access scope-level variables), or tries storing their references, that component can not be released from memory until the timeout is complete, or the interval is cleared
+      SetInterval/SetTimeout are both methods that belong to the window scope, so calling them from anywhere will create an object accessible from the root scope.<br>
+      If a component binds a scope when calling them (by providing a bound method or trying to access scope-level variables), or tries storing their references, that component can not be released from memory until the timeout is complete, or the interval is cleared. <br>
+      To prevent issues, make sure to verify that any timer you do not need is cleared.<br>
+      Try searching your heap snapshot for "DOMTimer" after closing and reopening this component. You can notice every time this component is created a new DOMTimer object is created as well.
       <br>
       {{time}}
     </div>
